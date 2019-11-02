@@ -1,0 +1,62 @@
+html {
+  font-family: 'Hepta Slab', serif;
+  margin: 0 7% 5% 7%;
+  border: 5px solid #0f285d;
+  border-top: none;
+}
+body {
+  margin: 0;
+}
+.title-container {
+  background: #0f285d;
+  color: white;
+  padding: 5% 15px 10px 15px;
+}
+.title-container > .title {
+  font-size: 400%;
+  font-weight: bolder;
+}
+.title-container > .timestamp {
+  font-style: italic;
+}
+.title-container > .timestamp > .date {
+  font-weight: normal;
+}
+.feed {
+  margin-bottom: 20px;
+}
+.feed:last-child {
+  margin-right: 0;
+}
+.feed > .title {
+  font-size: 180%;
+  margin-bottom: 10px;
+  background: #0b1833;
+  color: white;
+  padding: 25px 15px 10px 15px;
+}
+.feed .items .item {
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+.feed .items .item .title {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.feed .items .item .date {
+  display: inline-block;
+  font-size: 90%;
+}
+
+a {
+  color: #0f285d;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  font-style: italic;
+}
