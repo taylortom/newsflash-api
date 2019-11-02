@@ -37,8 +37,16 @@ function feedItemHTML(data) {
   const date = `<div class="date">${formatDate(data.date)}</div>`;
   return `<div class="item">${title}${date}</div>`;
 }
-
+// TODO handle other days
 function formatDate(date) {
-  const d = new Date(date);
-  return d.toString().slice(0,24);
+  const now = new Date();
+  const dDate = new Date(date);
+  if(dDate.month === now.month && dDate.year === now.year) {
+    if(dDate.date === now.date) {
+      return `Today at ${dDate.toTimeString().slice(0,5)}`;
+    }
+    if(dDate.date === now.date-1) {
+      return `Yesterday at ${dDate.toTimeString().slice(0,5)}`;
+    }
+  }
 }
