@@ -3,6 +3,7 @@ html {
   margin: 0 7% 5% 7%;
   border: 5px solid #0f285d;
   border-top: none;
+  background: #e2e4f5;
 }
 body {
   margin: 0;
@@ -23,7 +24,8 @@ body {
   font-weight: normal;
 }
 .feed {
-  margin-bottom: 20px;
+  background: white;
+  padding-bottom: 20px;
 }
 .feed:last-child {
   margin-right: 0;
@@ -40,13 +42,11 @@ body {
   margin-bottom: 10px;
 }
 .feed .items .item .title {
-  display: inline-block;
   font-weight: bold;
   margin-right: 5px;
   margin-bottom: 5px;
 }
 .feed .items .item .date {
-  display: inline-block;
   font-size: 90%;
 }
 
