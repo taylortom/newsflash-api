@@ -1,5 +1,5 @@
-const ApiServer = require('./lib/apiServer');
+const App = require('./lib/app');
 const dotenv = require('dotenv');
 
 dotenv.config();
-new ApiServer().start();
+new App().start();
