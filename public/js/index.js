@@ -41,12 +41,13 @@ function feedItemHTML(data) {
 function formatDate(date) {
   const now = new Date();
   const dDate = new Date(date);
-  if(dDate.month === now.month && dDate.year === now.year) {
-    if(dDate.date === now.date) {
+  if(dDate.getMonth() === now.getMonth() && dDate.getYear() === now.getYear()) {
+    if(dDate.getDate() === now.getDate()) {
       return `Today at ${dDate.toTimeString().slice(0,5)}`;
     }
-    if(dDate.date === now.date-1) {
+    if(dDate.getDate() === now.getDate()-1) {
       return `Yesterday at ${dDate.toTimeString().slice(0,5)}`;
     }
   }
+  return dDate.toString();
 }
