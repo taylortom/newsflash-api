@@ -1,9 +1,9 @@
 html {
   font-family: 'Hepta Slab', serif;
   margin: 0 7% 5% 7%;
-  border: 5px solid #0f285d;
+  border: 2px solid #0f285d;
   border-top: none;
-  background: #e2e4f5;
+  background: #0e275d;
 }
 body {
   margin: 0;
@@ -11,7 +11,11 @@ body {
 .title-container {
   background: #0f285d;
   color: white;
-  padding: 5% 15px 10px 15px;
+  padding: 15px;
+  padding-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 .title-container > .title {
   font-size: 400%;
@@ -31,6 +35,7 @@ body {
   margin-right: 0;
 }
 .feed > .title {
+  display: block;
   font-size: 180%;
   margin-bottom: 10px;
   background: #0b1833;
