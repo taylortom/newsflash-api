@@ -20,12 +20,23 @@ body {
 .title-container > .title {
   font-size: 400%;
   font-weight: bolder;
-}
-.title-container > .timestamp {
-  font-style: italic;
+  transition: font-size 0.1s;
 }
 .title-container > .timestamp > .date {
   font-weight: normal;
+}
+.title-container.minimised {
+  padding: 5px;
+  padding-bottom: 0;
+}
+.title-container.minimised > .title {
+  display: inline-block;
+  font-size: 250%;
+}
+.title-container.minimised > .timestamp {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 90%;
 }
 .feed {
   background: white;

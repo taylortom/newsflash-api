@@ -2,9 +2,23 @@ const intervalLength = 1000*60*5;
 const feedLength = 15;
 
 $(() => {
+  updateHeaderStyles();
+  $(document).on('scroll', onScroll);
   eventLoop();
   // setInterval(eventLoop, intervalLength);
 });
+
+function updateHeaderStyles() {
+  $('.feeds').css('margin-top', $('.title-container').outerHeight());
+}
+
+function onScroll(e) {
+  if($('html').scrollTop() > 50) {
+    $('.title-container').addClass('minimised');
+  } else {
+    $('.title-container').removeClass('minimised');
+  }
+}
 
 function eventLoop() {
   fetchData()
