@@ -24,7 +24,7 @@ function render(data) {
 }
 
 function feedHTML(data) {
-  return `<div class="feed"><div class="title">${data.title}</div>${feedItemsHTML(data.items)}</div>`;
+  return `<div class="feed"><a class="title" href="${data.link}" target="_blank">${data.title}</a>${feedItemsHTML(data.items)}</div>`;
 }
 
 function feedItemsHTML(data) {
