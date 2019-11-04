@@ -12,7 +12,7 @@ body {
   background: #0f285d;
   color: white;
   padding: 15px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -20,7 +20,7 @@ body {
 .title-container > .title {
   font-size: 400%;
   font-weight: bolder;
-  transition: font-size 0.1s;
+  transition: font-size 0.2s;
 }
 .title-container > .timestamp > .date {
   font-weight: normal;
@@ -65,14 +65,13 @@ body {
 .feed .items .item .date {
   font-size: 90%;
 }
-
-a {
+.feed .items .item a.title {
   color: #0f285d;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+.feed .items .item a.title.new {
+  color: #c70000;
 }
-a:visited {
-  font-style: italic;
+.feed .items .item:hover a.title {
+  text-decoration: underline;
 }
