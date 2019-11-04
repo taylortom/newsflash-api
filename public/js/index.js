@@ -1,5 +1,6 @@
 const intervalLength = 1000*60*5;
 const feedLength = 15;
+let originalFetchCache;
 
 $(init);
 
@@ -22,8 +23,11 @@ function onScroll(e) {
 
 function eventLoop() {
   fetchData()
-    .then((d) => render(d))
-    .catch((e) => console.error(e.responseText));
+    .then((d) => {
+      processData(d);
+      render(d);
+    })
+    .catch((e) => console.error(e));
 }
 
 function fetchData() {
@@ -31,6 +35,23 @@ function fetchData() {
     $('.timestamp .date').text(formatDate(new Date()));
     $.get('/api/feed').done(resolve).fail(reject);
   });
+}
+
+function processData(data) {
+  const cache = {};
+  data.forEach((f,dI) => {
+    f.items.forEach((i,iI) => {
+      if(originalFetchCache) {
+        if(!originalFetchCache[f.id]) originalFetchCache[f.id] = [];
+        data[dI].items[iI].new = !originalFetchCache[f.id].includes(i.title);
+      }
+      if(!cache[f.id]) cache[f.id] = [];
+      cache[f.id].push(i.title);
+    });
+  });
+  if(!originalFetchCache) {
+    originalFetchCache = cache;
+  }
 }
 
 function render(data) {
@@ -47,7 +68,7 @@ function feedItemsHTML(data) {
 }
 
 function feedItemHTML(data) {
-  const title = `<a class="title" href="${data.link}" target="_blank">${data.title}</a>`;
+  const title = `<a class="title${data.new ? ' new' : ''}" href="${data.link}" target="_blank">${data.title}</a>`;
   const date = `<div class="date">${formatDate(data.date)}</div>`;
   return `<div class="item">${title}${date}</div>`;
 }
