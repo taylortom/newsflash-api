@@ -4,22 +4,20 @@ const feedLength = 15;
 $(init);
 
 function init() {
-  updateHeaderStyles();
-  $(document).on('scroll', onScroll);
   eventLoop();
   setInterval(eventLoop, intervalLength);
+
+  updateHeaderStyles();
+  $(document).on('scroll', onScroll);
 }
 
 function updateHeaderStyles() {
-  $('.feeds').css('margin-top', $('.title-container').outerHeight());
+  $('.feeds').css('margin-top', $('.title-container').outerHeight(true));
 }
 
 function onScroll(e) {
-  if($('html').scrollTop() > 50) {
-    $('.title-container').addClass('minimised');
-  } else {
-    $('.title-container').removeClass('minimised');
-  }
+  $('.title-container').toggleClass('minimised', $('html').scrollTop() > 0);
+  updateHeaderStyles();
 }
 
 function eventLoop() {
