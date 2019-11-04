@@ -9,16 +9,13 @@ function init() {
   setInterval(eventLoop, intervalLength);
 
   updateHeaderStyles();
-  $(document).on('scroll', onScroll);
+  $(document).on('scroll', updateHeaderStyles);
 }
 
 function updateHeaderStyles() {
-  $('.feeds').css('margin-top', $('.title-container').outerHeight(true));
-}
-
-function onScroll(e) {
-  $('.title-container').toggleClass('minimised', $('html').scrollTop() > 0);
-  updateHeaderStyles();
+  const isMinimised = $('html').scrollTop() > 0;
+  $('.title-container').toggleClass('minimised', isMinimised);
+  $('.feeds').css('margin-top', isMinimised ? '70px' : '115px'); // TODO do something better...
 }
 
 function eventLoop() {
