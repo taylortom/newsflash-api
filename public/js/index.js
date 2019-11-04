@@ -1,12 +1,14 @@
 const intervalLength = 1000*60*5;
 const feedLength = 15;
 
-$(() => {
+$(init);
+
+function init() {
   updateHeaderStyles();
   $(document).on('scroll', onScroll);
   eventLoop();
-  // setInterval(eventLoop, intervalLength);
-});
+  setInterval(eventLoop, intervalLength);
+}
 
 function updateHeaderStyles() {
   $('.feeds').css('margin-top', $('.title-container').outerHeight());
