@@ -53,17 +53,20 @@ function feedItemHTML(data) {
   const date = `<div class="date">${formatDate(data.date)}</div>`;
   return `<div class="item">${title}${date}</div>`;
 }
-// TODO handle other days
 function formatDate(date) {
   const now = new Date();
   const dDate = new Date(date);
   if(dDate.getMonth() === now.getMonth() && dDate.getYear() === now.getYear()) {
     if(dDate.getDate() === now.getDate()) {
-      return `Today at ${dDate.toTimeString().slice(0,5)}`;
+      return `Today at ${formatTime(dDate)}`;
     }
     if(dDate.getDate() === now.getDate()-1) {
-      return `Yesterday at ${dDate.toTimeString().slice(0,5)}`;
+      return `Yesterday at ${formatTime(dDate)}`;
     }
   }
-  return dDate.toString();
+  return `${dDate.toLocaleDateString()} at ${formatTime(dDate)}`;
+}
+
+function formatTime(d) {
+  return d.toTimeString().slice(0,5);
 }
